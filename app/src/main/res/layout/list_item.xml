@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp">
+
+    <TextView
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/list_image_width"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:text="The HEADLINE a d s fd f d s k lgmdlkfgfldksjklhjldkghjlkghjlfjhöflkjhflkjhlöfkhjklöfhjflkjg"
+        />
+</LinearLayout>
