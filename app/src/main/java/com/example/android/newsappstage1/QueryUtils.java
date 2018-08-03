@@ -35,31 +35,32 @@ public final class QueryUtils{
            return null;
        }
        //creating an Arrylist to put News in
-       List<News> newsList = new ArrayList<>();
+       List<News> newsList =  new ArrayList<>();
        //Try parsing SAMPLE_JSON_RESPONSE, when problems occur with the JSON format, JSONException object will be thrown
        try {
-           //creating JSON object from the JSON response string
+           //build a list of article objects from the JSON response
            JSONObject baseJsonResponse = new JSONObject( newsJSON );
-           //extract the JSONArray associated with the key called  "results"
-           JSONArray newsArray = baseJsonResponse.getJSONArray( "results" );
-
+           //extract the JSONObject associated with the key called  "response"
+           JSONObject newsArray = baseJsonResponse.getJSONObject(  "response"  );
+          // Extract JSONArray with the name results
+           JSONArray results = newsArray.getJSONArray( "results" );
            //create an {@link News) object for each article in the news Array
 
            for (int i = 0; i< newsArray.length(); i++){
                //get an article at position i within the list of articles
-               JSONObject currentArticle = newsArray.getJSONObject( i );
-               // extract the JSON array for the latest news
-               JSONObject results = currentArticle.getJSONObject(  "response"  );
 
+               JSONObject currentArticle = results.getJSONObject( i) ;
+               // extract the JSON object for the latest news
                //extract the following values from the array "results"
                //webUrl:
-               String weburl = results.getString (  "webUrl" );
+                   String weburl = currentArticle.getString( "webUrl" );
                //webTitle
-               String football = results.getString (  "webTitle"  );
+               String title = currentArticle.getString ( "webTitle"  );
                //creating a new {@link News) object with the weburl and web title
                //from the JSON response
-               News news = new News( weburl, football );
+               News news = new News( weburl, title );
                newsList.add(news);
+
            }
        }
        catch (JSONException e){

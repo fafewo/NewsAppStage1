@@ -23,10 +23,16 @@ public class NewsAdapter extends ArrayAdapter<News> {
             listItemView = LayoutInflater.from( getContext() ).inflate( R.layout.list_item, parent, false );
         }
         String headline = getContext().getString( R.string.headline );
+        String article = getContext().getString( R.string.article );
 
         //find the TextView fpr the description
         TextView headlineView = (TextView) listItemView.findViewById( R.id.textHeadline );
         headlineView.setText(headline);
+        //find the TextView for the articel itself
+        TextView articleView = (TextView)listItemView.findViewById( R.id.thumbnail );
+        articleView.setText(article);
+
+
         return listItemView;
     }
 

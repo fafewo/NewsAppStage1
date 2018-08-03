@@ -1,9 +1,11 @@
 package com.example.android.newsappstage1;
 
+import org.json.JSONObject;
+
 public class News {
 
     //title of the guardian section shown in the APP
-    private String mFootball;
+    private String mTitle;
 
     //the URL of the API
     private String mWeburl;
@@ -11,15 +13,15 @@ public class News {
     //new Word object
 
     /**
-     * @param football shows the section/article of the guardian
+     * @param title shows the section/article of the guardian
      * @param weburl is the website
      */
-    public News(String football, String weburl ){
-        mFootball = football;
+    public News(String title, String weburl ){
+        mTitle = title;
         mWeburl = weburl;
     }
     //returns the article
-    public String getFootball (){return mFootball;}
+    public String getTitle (){return mTitle;}
     //returns the URL to find the article
     public String getUrl (){return mWeburl;}
 }

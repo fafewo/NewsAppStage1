@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NewsAppStage1</string>
     <string name="headline">a headline is supposed to be here.</string>
+    <string name="article">an article is supposed to be here.</string>
 </resources>
