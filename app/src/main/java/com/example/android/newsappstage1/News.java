@@ -6,22 +6,33 @@ public class News {
 
     //title of the guardian section shown in the APP
     private String mTitle;
-
-    //the URL of the API
+    private String mDate;
     private String mWeburl;
+    private String mSection;
+    private String mAuthor;
 
     //new Word object
 
     /**
-     * @param title shows the section/article of the guardian
-     * @param weburl is the website
+     * @param date
+     * @param title
+     * @param weburl
+     * @param section
+     * @param author
      */
-    public News(String title, String weburl ){
+    public News(String date, String title, String weburl, String section, String author ){
+        mDate =date;
         mTitle = title;
         mWeburl = weburl;
+        mSection = section;
+        mAuthor = author;
+
     }
     //returns the article
     public String getTitle (){return mTitle;}
     //returns the URL to find the article
     public String getUrl (){return mWeburl;}
+    public String getDate(){return mDate;}
+    public String getSection() {return mSection;}
+    public String getAuthor (){return  mAuthor;}
 }

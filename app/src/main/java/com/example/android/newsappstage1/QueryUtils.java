@@ -26,6 +26,7 @@ import static com.example.android.newsappstage1.NewsActivity.LOG_TAG;
 
 public final class QueryUtils{
 
+
     private QueryUtils(){}
         //returning a list of (@link News) objects that has been built up from parsing a JSON response
 
@@ -46,19 +47,31 @@ public final class QueryUtils{
            JSONArray results = newsArray.getJSONArray( "results" );
            //create an {@link News) object for each article in the news Array
 
+
            for (int i = 0; i< newsArray.length(); i++){
                //get an article at position i within the list of articles
 
                JSONObject currentArticle = results.getJSONObject( i) ;
                // extract the JSON object for the latest news
                //extract the following values from the array "results"
+
+               //Date
+               String date = currentArticle.getString( "webPublicationDate" );
                //webUrl:
-                   String weburl = currentArticle.getString( "webUrl" );
+               String weburl = currentArticle.getString( "webUrl" );
                //webTitle
                String title = currentArticle.getString ( "webTitle"  );
-               //creating a new {@link News) object with the weburl and web title
+               String section = currentArticle.optString( "sectionName" );
+
+              JSONArray tags = currentArticle.getJSONArray( "tags" );
+              JSONObject currentTag = tags.getJSONObject( i);
+              String author = currentTag.optString( "webTitle" );
+
+
+
+               //creating a new {@link News) object with the weburl and web title,...,
                //from the JSON response
-               News news = new News( weburl, title );
+               News news = new News(date, title, weburl,  section, author);
                newsList.add(news);
 
            }

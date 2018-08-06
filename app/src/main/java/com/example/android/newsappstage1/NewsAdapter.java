@@ -16,24 +16,41 @@ public class NewsAdapter extends ArrayAdapter<News> {
         super(context,0, (List<News>) news );
     }
     @Override
-    public View getView (int position, View convertView, ViewGroup parent){
+    public View getView (int i, View convertView, ViewGroup parent){
         //is the existing view reused?if not inflate
         View listItemView = convertView;
         if (listItemView == null){
             listItemView = LayoutInflater.from( getContext() ).inflate( R.layout.list_item, parent, false );
         }
-        String headline = getContext().getString( R.string.headline );
-        String article = getContext().getString( R.string.article );
+        News currentArticle = getItem( i );
+
+        //textView vor the Date
+        TextView dateView =(TextView)listItemView.findViewById( R.id.Date );
+        String textDate = (currentArticle.getDate());
+        dateView.setText( textDate );
 
         //find the TextView fpr the description
         TextView headlineView = (TextView) listItemView.findViewById( R.id.textHeadline );
-        headlineView.setText(headline);
-        //find the TextView for the articel itself
-        TextView articleView = (TextView)listItemView.findViewById( R.id.thumbnail );
-        articleView.setText(article);
+        String textHeadline =  (currentArticle.getTitle());
+        headlineView.setText(textHeadline);
 
+       //find the TextView for the article url itself
+        TextView articleView = (TextView)listItemView.findViewById( R.id.thumbnail );
+        String textArticle = (currentArticle.getUrl());
+        articleView.setText(textArticle);
+
+       //shows the section
+        TextView sectionView = (TextView)listItemView.findViewById( R.id.section );
+        String textSection =(currentArticle.getSection());
+        sectionView.setText( textSection );
+
+        //shows the author
+        TextView authorView = (TextView)listItemView.findViewById( R.id.author );
+        String textAuthor =(currentArticle.getAuthor());
+        authorView.setText( textAuthor );
 
         return listItemView;
     }
+
 
 }
