@@ -62,18 +62,18 @@ public final class QueryUtils{
                //webTitle
                String title = currentArticle.getString ( "webTitle"  );
                String section = currentArticle.optString( "sectionName" );
-
-              JSONArray tags = currentArticle.getJSONArray( "tags" );
-              JSONObject currentTag = tags.getJSONObject( i);
-              String author = currentTag.optString( "webTitle" );
-
-
-
+                //get the authors name of each article
+                String author = "";
+               JSONArray tags = currentArticle.getJSONArray( "tags" );
+               for (int pos =0 ; pos < tags.length(); pos ++) {
+                   JSONObject currentTag = tags.getJSONObject( pos );
+                   author = currentTag.optString( "webTitle" );
+                   break;
+               }
                //creating a new {@link News) object with the weburl and web title,...,
                //from the JSON response
                News news = new News(date, title, weburl,  section, author);
                newsList.add(news);
-
            }
        }
        catch (JSONException e){

@@ -36,12 +36,12 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_news );
         //find a reference to the ListView in the layout
-        ListView newsListView = (ListView)findViewById( R.id.list );
+        ListView newsListView = findViewById( R.id.list );
         //to create a new ArrayAdapter of the news
         mAdapter = new NewsAdapter(this, new ArrayList<News>());
         //set the adapter on the ListView so the list can be populated in the user interface
         newsListView.setAdapter( mAdapter );
-        mEmptyStateTextView = (TextView)findViewById( R.id.empty_view );
+        mEmptyStateTextView = findViewById( R.id.empty_view );
         newsListView.setEmptyView( mEmptyStateTextView );
         newsListView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
@@ -85,11 +85,14 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         //Data has been loaded therefore hide loading indicator
         View loadingIndicator = findViewById( R.id.load_indicator );
         loadingIndicator.setVisibility( View.GONE );
+        //showing no news are found
+        mEmptyStateTextView.setText( R.string.no_news );
         //clear adapter of previous news
         mAdapter.clear();
 
         if(newsList != null && !newsList.isEmpty()){
             mAdapter.addAll( newsList );
+
         }
     }
     @Override

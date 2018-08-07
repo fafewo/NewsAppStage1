@@ -2,4 +2,7 @@
     <string name="app_name">NewsAppStage1</string>
     <string name="headline">a headline is supposed to be here.</string>
     <string name="article">an article is supposed to be here.</string>
+    <string name="author">an author should be here</string>
+    <string name="date">a date should be here</string>
+    <string name="no_news">no news found</string>
 </resources>
