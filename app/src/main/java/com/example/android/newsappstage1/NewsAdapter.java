@@ -32,9 +32,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         String textHeadline =  (currentArticle.getTitle());
         headlineView.setText(textHeadline);
        //find the TextView for the article url itself
-      //  TextView articleView = (TextView)listItemView.findViewById( R.id.thumbnail );
-      //  String textArticle = (currentArticle.getUrl());
-      //  articleView.setText(textArticle);
 
        //shows the section
         TextView sectionView = listItemView.findViewById( R.id.section );
