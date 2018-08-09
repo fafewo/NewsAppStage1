@@ -28,8 +28,9 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
     public static final String LOG_TAG = NewsActivity.class.getName();
 
     //URL for the Footballnews data from the guardian dataset
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?"+"q=football&tag=sport/sport&show-tags=contributor&from-date=2018-01-01&"+
-            "q=politics&tag=politics/politics&show-tags=contributor&from-date=2018-01-01&"+"q=science&tag=science/science&show-tags=contributor&from-date=2018-01-01&"+"api-key=11479b37-af7f-4d05-b340-0f8f9dc138ad";
+    private static final String GUARDIAN_REQUEST_URL = "http://content.guardianapis.com/sections?q=section&show-tags=contributor&from-date=2018-01-01&api-key=11479b37-af7f-4d05-b340-0f8f9dc138ad";
+            //+"q=football&show-tags=contributor&from-date=2018-01-01&"+
+           // "q=politics&show-tags=contributor&from-date=2018-01-01&"+"q=science&show-tags=contributor&from-date=2018-01-01&"+"api-key=11479b37-af7f-4d05-b340-0f8f9dc138ad";
 
     private static final int NEWS_LOADER_ID = 1;
     //TextView to display when the list is empty
