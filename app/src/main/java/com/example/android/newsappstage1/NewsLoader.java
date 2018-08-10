@@ -2,12 +2,16 @@ package com.example.android.newsappstage1;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
+import android.net.Uri;
 
 import java.util.List;
 
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
     //tag for log messages
-    private static final String LOG_TAG = NewsLoader.class.getName();
+   private static final String LOG_TAG = NewsLoader.class.getName();
+
+
+
 
     //Query URL
     private String mUrl;
@@ -17,9 +21,10 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
      * @param context
      * @param url
      */
+    //
 
-    public NewsLoader (Context context, String url){
-        super(context);
+   public NewsLoader(Context context , String url){
+       super(context);
         mUrl = url;
     }
     @Override

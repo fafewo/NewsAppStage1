@@ -64,12 +64,14 @@ public final class QueryUtils{
                String section = currentArticle.optString( "sectionName" );
                 //get the authors name of each article
                 String author = "";
+                //check if the section has a tag array to get the author
+                if (currentArticle.has("tags")){
                JSONArray tags = currentArticle.getJSONArray( "tags" );
                for (int pos =0 ; pos < tags.length(); pos ++) {
                    JSONObject currentTag = tags.getJSONObject( pos );
                    author = currentTag.optString( "webTitle" );
                    break;
-               }
+               }}
                //creating a new {@link News) object with the weburl and web title,...,
                //from the JSON response
                News news = new News(date, title, weburl,  section, author);

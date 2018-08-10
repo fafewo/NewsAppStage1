@@ -28,7 +28,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
     public static final String LOG_TAG = NewsActivity.class.getName();
 
     //URL for the Footballnews data from the guardian dataset
-    private static final String GUARDIAN_REQUEST_URL = "http://content.guardianapis.com/sections?q=section&show-tags=contributor&from-date=2018-01-01&api-key=11479b37-af7f-4d05-b340-0f8f9dc138ad";
+    private static final String GUARDIAN_REQUEST_URL = "http://content.guardianapis.com/search?api-key=11479b37-af7f-4d05-b340-0f8f9dc138ad&show-tags=contributor&q=football";
             //+"q=football&show-tags=contributor&from-date=2018-01-01&"+
            // "q=politics&show-tags=contributor&from-date=2018-01-01&"+"q=science&show-tags=contributor&from-date=2018-01-01&"+"api-key=11479b37-af7f-4d05-b340-0f8f9dc138ad";
 
@@ -85,11 +85,8 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
     }
     @Override
     public Loader<List<News>>onCreateLoader(int i, Bundle bundle){
-
         //makes it setable
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-
         String choosesection  = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
                 getString(R.string.settings_order_by_default)
@@ -100,9 +97,10 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
       //  uriBuilder.appendQueryParameter("format", "geojson");
      // uriBuilder.appendQueryParameter("limit", "10");
-        uriBuilder.appendQueryParameter("chooseSection", choosesection);
+        uriBuilder.appendQueryParameter("section", choosesection);
 
-        return new NewsLoader( this, GUARDIAN_REQUEST_URL );
+
+        return new NewsLoader( this, uriBuilder.toString() );
     }
     public void onLoadFinished(Loader<List<News>>loader, List<News>newsList){
         //Data has been loaded therefore hide loading indicator
@@ -140,5 +138,4 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
