@@ -6,4 +6,30 @@
     <string name="date">a date should be here</string>
     <string name="no_news">no news found</string>
     <string name="no_internet_connection">No internet connection.</string>
+<<<<<<< HEAD
+=======
+
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">Article Settings</string>
+
+
+
+
+
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">choose section</string>
+    <string name="settings_order_by_key" translatable="false">choose_section</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_choose_football_value</string>
+
+    <!-- football section  [CHAR LIMIT=20] -->
+    <string name="settings_choose_football_label">Football</string>
+    <string name="settings_choose_football_value" translatable="false">football</string>
+
+    <!-- politics section [CHAR LIMIT=20] -->
+    <string name="settings_choose_politics_label">Politics</string>
+    <string name="settings_choose_politics_value" translatable="false">politics</string>
+    <!--science section-->
+    <string name="settings_choose_science_label">Science</string>
+    <string name="settings_choose_science_value" translatable="false">science</string>
+>>>>>>> 0277aa70ed7e419b7f78bf1fd7103d7d55dfab6f
 </resources>
